@@ -31,3 +31,14 @@ def PickleNSerialize(rainbowTable):
     retrievedDict = pickle.load(pickleFileRead) # LOAD the serialized data into a list
     retrievedList= list(retrievedDict.items())
     return retrievedList
+
+def PullRandomPasswords(retrievedList):
+    count = 0
+    randomNumList = []
+    randomPwList = []
+    while count < 15:
+        randomNumList.append(random.randint(1, len(retrievedList)))
+        count += 1
+    for eachNum in randomNumList:
+        randomPwList.append(retrievedList[eachNum])
+    return randomPwList
