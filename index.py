@@ -42,3 +42,14 @@ def PullRandomPasswords(retrievedList):
     for eachNum in randomNumList:
         randomPwList.append(retrievedList[eachNum])
     return randomPwList
+
+def PrintResults(randomPwList):
+    count = 0
+    for eachPw in randomPwList:
+        count += 1
+        print(count, eachPw)    
+
+rainbowTable = GenRainbowTblofPassword()
+retrievedList = PickleNSerialize(rainbowTable)
+randomPwList = PullRandomPasswords(retrievedList)
+PrintResults(randomPwList)
