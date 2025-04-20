@@ -21,3 +21,13 @@ def GenRainbowTblofPassword():
             md5Digest = md5Hash.hexdigest()
             rainbowTable[pw.decode('ascii')] = md5Digest
     return rainbowTable
+
+def PickleNSerialize(rainbowTable):
+    # Open (and create if file does not exist) the destination File (write binary)
+    pickleFileWrite = open('./rainbow.db', 'wb') 
+    pickle.dump(rainbowTable, pickleFileWrite) #serialize the list and DUMP to file                    
+    pickleFileWrite.close() 
+    pickleFileRead = open('./rainbow.db', 'rb') # Open the pickle file (read binary)
+    retrievedDict = pickle.load(pickleFileRead) # LOAD the serialized data into a list
+    retrievedList= list(retrievedDict.items())
+    return retrievedList
